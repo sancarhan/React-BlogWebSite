@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+
+ const [email, setEmail] = useState('')
+ const [password, setPassword] = useState('')
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
@@ -18,10 +22,11 @@ const Login = () => {
             </p>
           </div>
           <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="mt-6 w-full sm:max-w-md
+            text-gray-600">
               <div className="flex flex-col">
                 <label>Email</label>
-                <input
+                <input onChange={e=> setEmail(e.target.value)} value={email}
                   type="email"
                   required
                   placeholder="Emailinizi Giriniz"
@@ -30,7 +35,7 @@ const Login = () => {
               </div>
               <div className="flex flex-col">
                 <label>Şifre</label>
-                <input
+                <input onChange={e=> setPassword(e.target.value)} value={password}
                   type="password"
                   required
                   placeholder="Şifrenizi Giriniz"
